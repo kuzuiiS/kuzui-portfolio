@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="taskbar.css">
+    <script src="santillanjs.js"></script>
+    <script src="https://threejs.org/build/three.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <img src="img/LOGO.png" class="LOGO">
+            <nav>
+                <div class="section-buttons">
+                    <a class="section-button" href="index.html">Home</a>
+                    <a class="section-button" href="about.html">About</a>
+                    <a class="section-button" href="testimonial.html">Testimonials</a>
+                    <a class="section-button" href="#contact">Contact</a>
+                    <span id="close-menu-btn" class="material-symbols-outlined">close</span>
+                </div>
+
+                <span id="hamburger-btn" class="material-symbols-outlined">menu</span>
+            </nav>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <section id="testimonials">
+            <div id="comment-form">
+                <h1>Testimonials</h1>
+                <div class="textbox-container">
+                    <input class="textbox" id="comment" name="comment" placeholder=" " required>
+                    <label for="comment" class="textbox-label">Your Comment</label>
+                </div>
+                <div class="star-rating">
+                    <input type="radio" id="star5" name="rating" value="5" />
+                    <label for="star5"></label>
+
+                    <input type="radio" id="star4" name="rating" value="4" />
+                    <label for="star4"></label>
+
+                    <input type="radio" id="star3" name="rating" value="3" />
+                    <label for="star3"></label>
+
+                    <input type="radio" id="star2" name="rating" value="2" />
+                    <label for="star2"></label>
+
+                    <input type="radio" id="star1" name="rating" value="1" required />
+                    <label for="star1"></label>
+                </div>
+                <button>
+                    <span class="button_top" onclick="addComment()">Submit</span>
+                </button>
+                <br>
+
+                <div id="moreContent" class="popup">
+                    <div class="testimonial-container" id="testimonial-container"></div>
+                    <button>
+                        <span class="button_top" onclick="hidePopup()">Close</span>
+                    </button>
+                </div>
+                <button>
+                    <span class="button_top" onclick="showPopup()">Show Ratings</span>
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <section id="contact">
+        <div class="social-menu">
+            <h1>Contact</h1>
+            <ul>
+                <li><a href="https://www.facebook.com/KuzuiiS/"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="https://www.instagram.com/kuzuii.s/"><i class="fa fa-instagram"></i></a></li>
+                <li><a href="https://mail.google.com/mail/u/0/#sent?compose=CSkGSFwRZWTbwqLzzVHCMLdrjwrvqdWNfMsHJmTphGwsFVtgNwxKrSPlxRzqWHGcVLJDKVzbvHbrbRGcnPFbDRQGKlZhwnmCPzXHCssqTHRcjnKcgSnZWHhSZPqWJFgglLNMKZqVJZBdZXHxDnjqBqpKNPRWvndXNvZ"><i
+                            class="fa fa-envelope"></i></i></a></li>
+                <li><a href="tel:+693072734117"><i class="fa fa-phone"></i></a></li>
+            </ul>
+        </div>
+    </section>
+
+    <script src="santillanjs.js"></script>
+    <script>
+       const header = document.querySelector("header");
+        const body = document.querySelector("body");
+        const hamburgerBtn = document.querySelector("#hamburger-btn");
+        const closeMenuBtn = document.querySelector("#close-menu-btn");
+        const contactLink = document.querySelector('a[href="#contact"]');
+
+        hamburgerBtn.addEventListener("click", toggleMobileMenu);
+        closeMenuBtn.addEventListener("click", toggleMobileMenu);
+
+    
+        contactLink.addEventListener("click", () => {
+            if (header.classList.contains("show-mobile-menu")) {
+                toggleMobileMenu();
+            }
+        });
+
+        function toggleMobileMenu() {
+            header.classList.toggle("show-mobile-menu");
+            body.classList.toggle("blur");
+
+            if (body.classList.contains("blur")) {
+                body.classList.add("hamburger-click");
+            } else {
+                body.classList.remove("hamburger-click");
+            }
+        }
+    </script>
+</body>
+</html>
